@@ -1,0 +1,193 @@
+/* Global Styles */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  display: flex;
+}
+
+h1, h2, p {
+  margin: 0;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background-color: #4CAF50;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar h1 {
+  font-size: 1.8em;
+  margin-bottom: 20px;
+}
+
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+
+.sidebar nav ul li {
+  width: 100%;
+}
+
+.sidebar nav ul li a {
+  display: block;
+  padding: 15px;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  font-size: 1.1em;
+  transition: background 0.3s;
+}
+
+.sidebar nav ul li a:hover,
+.sidebar nav ul li a.active {
+  background-color: #45a049;
+}
+
+/* Main Content */
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: #f4f4f9;
+}
+
+.content, .welcome {
+  text-align: center;
+}
+
+.content h2, .welcome h2 {
+  font-size: 2.5em;
+  color: #4CAF50;
+  margin-bottom: 10px;
+}
+
+.content p, .welcome p {
+  font-size: 1.2em;
+  color: #555;
+}
+
+/* Quiz Section */
+.quiz {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.question {
+  margin: 20px 0;
+}
+
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+  background: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.answers {
+  margin-top: 30px;
+  padding: 15px;
+  border: 1px solid #4CAF50;
+  background-color: #f9fff9;
+  max-width: 600px;
+  margin: 30px auto 0;
+  border-radius: 10px;
+  text-align: left;
+}
+
+.answers h3 {
+  color: #4CAF50;
+  margin-bottom: 10px;
+}
+
+.answers ul {
+  padding: 0;
+  list-style: none;
+}
+
+.answers ul li {
+  margin-bottom: 5px;
+}
+
+/* Bouton de validation */
+.btn-validate {
+  display: inline-block;
+  background-color: #4CAF50; /* Vert clair */
+  color: white;
+  font-size: 1em;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+.btn-validate:hover {
+  background-color: #45a049; /* Vert légèrement plus foncé */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-validate:active {
+  transform: scale(0.98);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+/* Style du tableau */
+table {
+  width: 100%;
+  border-collapse: collapse; /* Supprime les bordures doubles */
+  margin-top: 20px;
+  border: 2px solid #4CAF50; /* Bordure extérieure du tableau */
+}
+
+/* Style des en-têtes */
+th {
+  background-color: #4CAF50;
+  color: white;
+  text-align: left;
+  padding: 10px;
+  border: 1px solid #4CAF50; /* Bordure autour des cellules d'en-tête */
+}
+
+/* Style des cellules de données */
+td {
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid #ddd; /* Bordure fine sous chaque cellule */
+  border-left: 1px solid #ddd; /* Bordure gauche pour chaque cellule */
+}
+
+/* Style pour les lignes impaires (alternance de couleur) */
+tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+/* Style au survol d'une ligne */
+tr:hover {
+  background-color: #ddd;
+}
+
+/* Bordure droite de la dernière cellule */
+td:last-child {
+  border-right: 1px solid #ddd; /* Bordure droite pour la dernière cellule */
+}
+

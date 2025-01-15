@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz - Travail de SVT</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="sidebar">
+  <h1>SVT</h1>
+  <nav>
+    <ul>
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="introduction.html">Introduction</a></li>
+      <li><a href="Pilule.html">la pilule</a></li>
+      <li><a href="DIU.html">Le DIU</a></li>
+      <li><a href="Implant.html">L'implant</a></li>
+      <li><a href="Patch.html">Le patch</a></li>
+      <li><a href="Anneau.html">L'anneau</a></li>
+      <li><a href="Conclusion.html">Conclusion</a></li>
+    </ul>
+  </nav>
+</div>
+<main>
+  <section class="quiz">
+    <h2>Quiz Final</h2>
+    <br>
+    <p>Testez vos connaissances en répondant aux questions ci-dessous. Vérifiez vos réponses à la fin du quiz.</p>
+    <br>
+
+    <form id="quizForm">
+      <!-- Question 1 -->
+      <div class="question">
+        <p>1. Qu'est-ce que le DIU ?</p>
+        <label>
+          <input type="radio" name="q1" value="Faux"> Faux
+        </label><br>
+        <label>
+          <input type="radio" name="q1" value="Faux"> Faux
+        </label><br>
+        <label>
+          <input type="radio" name="q1" value="Vrai"> Vrai
+        </label>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="question">
+        <p>2. Comment appelle-t-on la couche protectrice de la Terre contre les UV ?</p>
+        <label>
+          <input type="radio" name="q2" value="Faux"> Faux
+        </label><br>
+        <label>
+          <input type="radio" name="q2" value="Faux"> Faux
+        </label><br>
+        <label>
+          <input type="radio" name="q2" value="Vrai"> Vrai
+        </label>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="question">
+        <p>3. Quel cycle explique l'échange de dioxyde de carbone entre les océans et l'atmosphère ?</p>
+        <label>
+          <input type="radio" name="q3" value="Faux"> Faux
+        </label><br>
+        <label>
+          <input type="radio" name="q3" value="Vrai"> Vrai
+        </label><br>
+        <label>
+          <input type="radio" name="q3" value="Faux"> Faux
+        </label>
+      </div>
+
+      <button type="submit" class="btn-validate">
+        Vérifier mes réponses
+      </button>
+    </form>
+
+    <div class="answers" style="opacity: 0;">
+      <h3>Correction</h3>
+      <ul id="resultList">
+        <!-- Les résultats seront affichés ici -->
+      </ul>
+      <h4 id="score">Note : 0/3</h4>
+    </div>
+  </section>
+</main>
+<script>
+  const correctAnswers = {
+    q1: "Vrai",  // Bonne réponse pour la question 1
+    q2: "Vrai",   // Bonne réponse pour la question 2
+    q3: "Vrai"  // Bonne réponse pour la question 3
+  };
+
+  const form = document.getElementById('quizForm');
+  const resultList = document.getElementById('resultList');
+  const scoreElement = document.getElementById('score');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // Afficher la correction
+    resultList.innerHTML = "";  // Effacer les résultats précédents
+    let score = 0;
+
+    // Vérifier chaque question
+    for (let question in correctAnswers) {
+      const selectedAnswer = form.querySelector(`input[name="${question}"]:checked`);
+
+      if (selectedAnswer) {
+        const userAnswer = selectedAnswer.value;
+        const correctAnswer = correctAnswers[question];
+
+        // Ajouter la réponse de l'utilisateur avec la validation (correct/incorrect) et la bonne réponse
+        const listItem = document.createElement('li');
+        if (userAnswer === correctAnswer) {
+          listItem.innerHTML = `${question} : ${userAnswer} - <strong>✔</strong>`;
+        } else {
+          listItem.innerHTML = `${question} : ${userAnswer} - <strong>✖</strong> (Bonne réponse : ${correctAnswer})`;
+        }
+        resultList.appendChild(listItem);
+
+        // Calculer le score
+        if (userAnswer === correctAnswer) {
+          score++;
+        }
+      } else {
+        // Ajouter un message si l'utilisateur n'a pas répondu à la question
+        const listItem = document.createElement('li');
+        listItem.innerHTML = `${question} : Non répondu - <strong>Incorrect</strong> (Bonne réponse : ${correctAnswers[question]})`;
+        resultList.appendChild(listItem);
+      }
+    }
+
+    // Afficher la note
+    scoreElement.innerHTML = `Note : ${score}/3`;
+
+    // Afficher les résultats
+    document.querySelector('.answers').style.opacity = 1;
+  });
+</script>
+</body>
+</html>
